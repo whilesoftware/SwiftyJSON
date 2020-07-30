@@ -1174,6 +1174,7 @@ public func == (lhs: JSON, rhs: JSON) -> Bool {
     }
 }
 
+#if !os(Linux)
 public func <= (lhs: JSON, rhs: JSON) -> Bool {
 
     switch (lhs.type, rhs.type) {
@@ -1217,6 +1218,7 @@ public func < (lhs: JSON, rhs: JSON) -> Bool {
     default:                 return false
     }
 }
+#endif
 
 private let trueNumber = NSNumber(value: true)
 private let falseNumber = NSNumber(value: false)
@@ -1247,6 +1249,7 @@ func == (lhs: NSNumber, rhs: NSNumber) -> Bool {
 func != (lhs: NSNumber, rhs: NSNumber) -> Bool {
     return !(lhs == rhs)
 }
+
 
 func < (lhs: NSNumber, rhs: NSNumber) -> Bool {
 
